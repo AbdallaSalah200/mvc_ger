@@ -1,15 +1,52 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:mvc_get/controller/home_contrller.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      body: Container(
-        child: null,
-      ),
+  appBar: AppBar(
+    title: const Text("Homepage"),
+  ) ,
+      body:Center(
+          child: GetBuilder<HomeController>(
+           init: HomeController(),
+            builder:(controller)=> Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                
+                MaterialButton(onPressed: ()
+                { 
+                 controller.increment();
+                  // setState(() {
+                  //   counter++;
+                  // });
+                },child: const Icon(Icons.add,size: 30,),),
+                    Center(
+                 child:  Text("${controller.counter}",style:  const TextStyle(
+                    fontSize: 30,
+                  ),),
+                  
+               ),
+                MaterialButton(onPressed: ()
+                {
+                  controller.decrement();
+             //   print (counter);
+                  // setState(() {
+                  //   counter--;
+                  // }); 
+                },
+                child: 
+                const Icon(
+                  Icons.remove
+                ,size: 30,),),
+              ],
+            ),
+          ),
+        ),
+      
     );
   }
 }
