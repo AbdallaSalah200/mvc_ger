@@ -1,13 +1,13 @@
 import 'package:get/state_manager.dart';
 
 class HomeController extends GetxController{
-  int counter =0 ;
+  RxInt counter =0.obs ;
   void increment (){
      counter++;
-     update();
+    // update();
   }
   void decrement (){
      counter--;
-       update();
+    //   update();
   }
 }
