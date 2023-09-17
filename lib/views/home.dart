@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:mvc_get/controller/home_contrller.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+ Home({super.key});
+ final  HomeController controller =HomeController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,9 +12,7 @@ class Home extends StatelessWidget {
     title: const Text("Homepage"),
   ) ,
       body:Center(
-          child: GetX<HomeController>(
-           init: HomeController(),
-            builder:(controller)=> Row(
+          child: Obx( ()=> Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 
